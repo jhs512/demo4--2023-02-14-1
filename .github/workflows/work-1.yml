@@ -40,7 +40,7 @@ jobs:
       tag_name: ${{ steps.tag_version.outputs.new_tag }}
     steps:
       - uses: actions/checkout@v3
-      - uses: laputansoft/github-tag-action@v4.6
+      - uses: mathieudutour/github-tag-action@v6.0
         id: tag_version
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -76,8 +76,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.actor }}/demo4__2023_02_14:${{ needs.tag.outputs.tag_name }},
-            ghcr.io/${{ github.actor }}/demo4__2023_02_14:latest
+            ghcr.io/${{ github.actor }}/demo4__2023_02_14-1:${{ needs.tag.outputs.tag_name }},
+            ghcr.io/${{ github.actor }}/demo4__2023_02_14-1:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
   deploy:
