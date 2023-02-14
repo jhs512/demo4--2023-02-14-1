@@ -76,8 +76,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.actor }}/demo4__2023_02_14-1:${{ needs.tag.outputs.tag_name }},
-            ghcr.io/${{ github.actor }}/demo4__2023_02_14-1:latest
+            ghcr.io/${{ github.actor }}/demo4--2023-02-14-1:${{ needs.tag.outputs.tag_name }},
+            ghcr.io/${{ github.actor }}/demo4--2023-02-14-1:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
   deploy:
@@ -90,4 +90,4 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
       - run: |
-          kubectl get pods
+          kubectl set image deployment.apps/demo4--2023-02-14-1-deployment demo4--2023-02-14-1=ghcr.io/jhs512/demo4--2023-02-14-1:${{ needs.tag.outputs.tag_name }}
