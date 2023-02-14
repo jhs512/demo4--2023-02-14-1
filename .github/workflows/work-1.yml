@@ -76,8 +76,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.actor }}/demo4:${{ needs.tag.outputs.tag_name }},
-            ghcr.io/${{ github.actor }}/demo4:latest
+            ghcr.io/${{ github.actor }}/demo4__2023_02_14:${{ needs.tag.outputs.tag_name }},
+            ghcr.io/${{ github.actor }}/demo4__2023_02_14:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
   deploy:
