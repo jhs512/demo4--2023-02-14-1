@@ -90,4 +90,4 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
       - run: |
-          kubectl get nodes
+          kubectl get pods
