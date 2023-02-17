@@ -91,5 +91,4 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
       - run: |
-          kubectl get nodes
           kubectl set image deployment.apps/demo4--2023-02-14-1-deployment demo4--2023-02-14-1=ghcr.io/jhs512/demo4--2023-02-14-1:${{ needs.tag.outputs.tag_name }}
