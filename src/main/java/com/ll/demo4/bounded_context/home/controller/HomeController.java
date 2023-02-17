@@ -13,7 +13,7 @@ public class HomeController {
 
     @GetMapping("/")
     @ResponseBody
-    public String showMain() {
+    public String showHostname() {
         return "HOSTNAME : " + environment.getProperty("HOSTNAME");
     }
 }
